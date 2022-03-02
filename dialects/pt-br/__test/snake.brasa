@@ -1,0 +1,82 @@
+// inspirado por https://www.youtube.com/watch?v=xGmXxpIj6vs
+def tela;
+def ctx;
+
+janela.aoCarregar = função() {
+    tela = documento.pegueElementoPorId("gt");
+    ctx = tela.pegueContexto("2d");
+    documento.adicioneOuvinteDeEvento("keydown", aoPressionarTecla);
+    defIntervalo(jogo, 1000 / 15);
+}
+
+def px = 10;
+def py = 10;
+def gs = 20;
+def tc = 20;
+def ax = 15;
+def ax = 15;
+def xv = 0;
+def yv = 0;
+def rastro = [];
+def rabo = 5;
+
+função jogo() {
+    px += xv;
+    py += yv;
+    se (px < 0) {
+        px = tc - 1;
+    }
+    se(px > tc - 1) {
+        px = 0;
+    }
+    se(py < 0) {
+        py = tc - 1;
+    }
+    se(py > tc - 1) {
+        py = 0;
+    }
+
+    ctx.estiloDePreenchimento = "black";
+    ctx.preenchaRetângulo(0, 0, tela.largura, tela.altura);
+ 
+    ctx.estiloDePreenchimento = "lime";
+    para(def i = 0; i < rastro.extensão; i++) {
+        ctx.preenchaRetângulo(rastro[i].x * gs, rastro[i].y * gs, gs - 2, gs - 2);
+        se(rastro[i].x == px && rastro[i].y == py) {
+            rabo = 5;
+        }
+    }
+    rastro.push({x: px, y: py});
+    enquanto(rastro.extensão > rabo) {
+      rastro.desloque();
+    }
+ 
+    se(ax == px && ay == py) {
+        rabo++;
+        ax = Mat.piso(Mat.aleatório() * tc);
+        ay = Mat.piso(Mat.aleatório() * tc);
+    }
+    ctx.estiloDePreenchimento = "red";
+    ctx.preenchaRetângulo(ax * gs, ay * gs, gs - 2, gs - 2);
+}
+
+função aoPressionarTecla(evt) {
+    escolha (evt.codigoDaTecla) {
+        caso 37:
+            xv = -1;
+            yv = 0;
+            pare;
+        caso 38:
+            xv = 0;
+            yv = -1;
+            pare;
+        caso 39:
+            xv = 1;
+            yv = 0;
+            pare;
+        caso 40:
+            xv = 0;
+            yv = 1;
+            pare;
+    }
+}
