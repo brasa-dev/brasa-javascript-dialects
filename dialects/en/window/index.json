@@ -1,0 +1,22 @@
+{
+  "identifiers": {
+    "window": {
+      "value": "janela",
+      "properties": {
+        "document": {
+          "value": "documento",
+          "properties": {
+            "body": {
+              "value": "corpo",
+              "properties": {
+                "offsetWidth": {
+                  "value": "larguraDeslocamento"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

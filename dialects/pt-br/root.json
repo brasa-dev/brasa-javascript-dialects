@@ -3,6 +3,7 @@
   "type": "dialect",
   "dialect": "pt_br",
   "label": "brasascript",
+  "extension": "brasa",
   "keywords": {
     "abstract": "abstrato",
     "as": "como",
@@ -75,6 +76,7 @@
     "constructor": "construtor",
     "arguments": "argumentos",
     "get": "pegue",
-    "set": "defina"
+    "set": "defina",
+    "target": "alvo"
   }
 }
