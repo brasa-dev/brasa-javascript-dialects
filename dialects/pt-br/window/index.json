@@ -1,22 +1,36 @@
 {
-  "identifiers": {
-    "window": {
+  "identifiers": [
+    {
+      "id": "window",
       "value": "janela",
-      "properties": {
-        "document": {
+      "identifiers": [
+        {
+          "id": "console",
+          "value": "console",
+          "identifiers": [
+            {
+              "id": "log",
+              "value": "logue"
+            }
+          ]
+        },
+        {
+          "id": "document",
           "value": "documento",
-          "properties": {
-            "body": {
+          "identifiers": [
+            {
+              "id": "body",
               "value": "corpo",
-              "properties": {
-                "offsetWidth": {
+              "identifiers": [
+                {
+                  "id": "offsetWidth",
                   "value": "larguraDeslocamento"
                 }
-              }
+              ]
             }
-          }
+          ]
         }
-      }
+      ]
     }
-  }
+  ]
 }
