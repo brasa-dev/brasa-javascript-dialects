@@ -1,36 +1,51 @@
 {
-  "identifiers": [
-    {
-      "id": "window",
+  "identifiers": {
+    "window": {
       "value": "janela",
-      "identifiers": [
-        {
-          "id": "console",
+      "properties": {
+        "console": {
           "value": "console",
-          "identifiers": [
-            {
-              "id": "log",
+          "properties": {
+            "log": {
               "value": "logue"
             }
-          ]
+          }
         },
-        {
-          "id": "document",
+        "document": {
           "value": "documento",
-          "identifiers": [
-            {
-              "id": "body",
+          "properties": {
+            "body": {
               "value": "corpo",
-              "identifiers": [
-                {
-                  "id": "offsetWidth",
+              "properties": {
+                "offsetWidth": {
                   "value": "larguraDeslocamento"
                 }
-              ]
+              }
             }
-          ]
+          }
         }
-      ]
+      }
+    },
+    "console": {
+      "value": "console",
+      "properties": {
+        "log": {
+          "value": "logue"
+        }
+      }
+    },
+    "document": {
+      "value": "documento",
+      "properties": {
+        "body": {
+          "value": "corpo",
+          "properties": {
+            "offsetWidth": {
+              "value": "larguraDeslocamento"
+            }
+          }
+        }
+      }
     }
-  ]
+  }
 }
