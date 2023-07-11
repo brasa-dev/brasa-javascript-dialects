@@ -12,6 +12,6 @@ for dialect in ./dialects/*; do
 
   jq '. | {extension: .extension, dialect: .dialect, from: "en", to: .dialect, label: .label, version: .version, identifiers: .identifiers, lexicon: (.keywords + .literals + .special) }' '/tmp/lang.json' > ./build/en_$DIALECT.json
 
-  jq '. | {extension: .extension, dialect: "en", from: .dialect, to: "en", label: "javascript", version: .version, identifiers: .identifiers | walk(if type == "object" and has("id") then if has("identifiers") then {id: .value, value: .id, identifiers: .identifiers} else {id: .value, value: .id} end else . end), lexicon: (.keywords + .literals + .special | to_entries | map({(.value): .key}) | add) }' '/tmp/lang.json' > "build/${DIALECT}_en".json
+  jq '. | {extension: .extension, dialect: "en", from: .dialect, to: "en", label: "javascript", version: .version, identifiers: (.identifiers // {}) | to_entries | map({(.value.value): (.value + {value: .key})} | walk(if type == "object" and has("properties") then .properties = ( .properties | to_entries | map({(.value.value): (.value + {value: .key})}) | add) else . end )) | add, lexicon: (.keywords + .literals + .special | to_entries | map({(.value): .key}) | add) }' '/tmp/lang.json' > "build/${DIALECT}_en".json
 done
 
